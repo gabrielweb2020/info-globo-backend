@@ -1,0 +1,260 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "InfoGlobo Documentation",
+        "description": "This is an API InfoGlobo",
+        "version": "1.0.0",
+        "contact": {
+            "email": "gabriel.bc88@gmail.com"
+        }
+    },
+    "paths": {
+        "/auth/register": {
+            "post": {
+                "tags": ["User Account"],
+                "summary": "Register User",
+                "description": "Register a new user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                            "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "user name sample",
+                                    "email": "mail@email.com",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Registration failed"
+                    }
+                }
+            }
+        },
+        "/auth/authentication": {
+            "post": {
+                "tags": ["User Account"],
+                "summary": "Authenticate User",
+                "description": "Authenticate a user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "email": "mail@email.com",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "Created"
+                },
+                "400": {
+                    "description": "User not found!"
+                }
+            }
+        },
+        "/auth/forgot_password": {
+            "post": {
+                "tags": ["User Account"],
+                "summary": "Forgot Password User",
+                "description": "Forgot Password a user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "email": "mail@email.com"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": ""
+                },
+                "400": {
+                    "description": "Erro on forgot password, try again!"
+                }
+            }
+        },
+        "/auth/reset_password": {
+            "post": {
+                "tags": ["User Account"],
+                "summary": "Reset Password User",
+                "description": "Reset Password a user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "token": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "email": "mail@email.com",
+                                    "token": "e4029f16bf0c512db09f2911a179872d3afe8907",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": ""
+                },
+                "400": {
+                    "description": "Erro on forgot password, try again!"
+                }
+            }
+        },
+        "/posts": {
+            "get": {
+                "tags": ["Posts"],
+                "summary": "List Posts",
+                "description": "List All Posts",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Error loading posts!"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Posts"],
+                "summary": "Create Post",
+                "description": "Create a New Post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "createdAt": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "title": "Title Test",
+	                                "description": "This is a post test!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "Created"
+                },
+                "400": {
+                    "description": "Error creating post!"
+                }
+            } 
+        },
+        "/posts/{id}": {
+            "get": {
+                "tags": ["Posts"],
+                "summary": "List Post",
+                "description": "List One Post",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Error listing post!"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Posts"],
+                "summary": "Update Post",
+                "description": "Update a One Post",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Error updating post!"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Posts"],
+                "summary": "Delete Post",
+                "description": "Delete a One Post",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Error deleting post!"
+                    }
+                }
+            }
+        }
+    }    
+}
+  
+
+
+
+
+
