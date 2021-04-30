@@ -2,9 +2,7 @@
 API em Node JS, MongoDB e Autenticação JWT desenvolvida como desafio da Info Globo.
 
 #####
-Express
-Mongoose
-JWT
+Express, Mongoose, JWT
 
 ## Instalação
 
@@ -19,9 +17,9 @@ JWT
 
 `mongod`
 
-#### iniciar o projeto
+#### Iniciar o Projeto
 
 `yarn dev`
 
-#### documentação Swagger
+#### Documentação Swagger
 http://localhost:3333/api-docs/
